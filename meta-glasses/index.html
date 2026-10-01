@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meta Glasses Privacy Lawsuit | Lindner &amp; Lindner</title>
+<meta name="description" content="Own Ray-Ban Meta or other Meta AI glasses? Your private video and audio may have been sent overseas for human review and used to train AI. Register with Lindner & Lindner for a free case review.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f1b2d;
+    --ink-soft: #3c4a5e;
+    --muted: #66748a;
+    --bg: #f7f5f0;
+    --surface: #ffffff;
+    --line: #e2ddd2;
+    --navy: #12233d;
+    --navy-2: #1b3358;
+    --accent: #c8922a;
+    --accent-dark: #a5741a;
+    --danger: #b3261e;
+    --ok: #1e7a46;
+    --radius: 14px;
+    --shadow: 0 20px 50px -20px rgba(15, 27, 45, .35);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 { font-family: "Source Serif 4", Georgia, serif; line-height: 1.2; margin: 0 0 .5em; }
+  a { color: inherit; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+
+  /* Top bar */
+  .topbar { background: var(--navy); color: #fff; }
+  .topbar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 14px; padding-bottom: 14px; }
+  .brand { font-family: "Source Serif 4", Georgia, serif; font-weight: 700; font-size: 1.25rem; letter-spacing: .01em; text-decoration: none; }
+  .brand span { color: var(--accent); }
+  .topbar .cta-mini { font-size: .9rem; font-weight: 600; text-decoration: none; background: var(--accent); color: var(--navy); padding: 8px 14px; border-radius: 999px; white-space: nowrap; }
+  .topbar .cta-mini:hover { background: #d9a43b; }
+
+  /* Hero */
+  .hero { background: linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 100%); color: #fff; padding: 56px 0 72px; }
+  .hero .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: start; }
+  .eyebrow { display: inline-block; font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+  .hero h1 { font-size: clamp(2rem, 4.2vw, 3.1rem); }
+  .hero .lede { font-size: 1.12rem; color: #d4dceb; max-width: 36em; }
+  .hero ul { list-style: none; padding: 0; margin: 28px 0 0; display: grid; gap: 12px; }
+  .hero li { display: flex; gap: 12px; align-items: flex-start; color: #e8edf6; }
+  .hero li svg { flex: none; margin-top: 3px; }
+  .badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
+  .badge { font-size: .85rem; border: 1px solid rgba(255,255,255,.22); border-radius: 999px; padding: 6px 14px; color: #dfe6f2; }
+
+  /* Form card */
+  .card { background: var(--surface); color: var(--ink); border-radius: var(--radius); box-shadow: var(--shadow); padding: 28px; }
+  .card h2 { font-size: 1.5rem; margin-bottom: 4px; }
+  .card .sub { color: var(--muted); font-size: .95rem; margin: 0 0 20px; }
+  .field { margin-bottom: 16px; }
+  .field label, .field legend { display: block; font-weight: 600; font-size: .9rem; margin-bottom: 6px; padding: 0; }
+  .field input, .field select {
+    width: 100%; font: inherit; font-size: 1rem; color: var(--ink);
+    padding: 12px 14px; border: 1.5px solid #cfd6e0; border-radius: 10px; background: #fff;
+    transition: border-color .15s, box-shadow .15s;
+  }
+  .field input:focus, .field select:focus { outline: none; border-color: var(--navy-2); box-shadow: 0 0 0 3px rgba(27, 51, 88, .15); }
+  .field.invalid input, .field.invalid select { border-color: var(--danger); }
+  .field .err { display: none; color: var(--danger); font-size: .82rem; margin-top: 4px; }
+  .field.invalid .err { display: block; }
+  fieldset.field { border: 0; margin: 0 0 16px; padding: 0; min-width: 0; }
+  .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .consent { display: flex; gap: 10px; align-items: flex-start; font-size: .76rem; color: var(--ink-soft); line-height: 1.5; margin: 6px 0 18px; }
+  .consent input { margin-top: 3px; width: 18px; height: 18px; flex: none; accent-color: var(--navy); }
+  .consent.invalid { color: var(--danger); }
+  .btn {
+    width: 100%; border: 0; cursor: pointer; font: inherit; font-weight: 700; font-size: 1.05rem;
+    background: var(--accent); color: var(--navy); padding: 15px 18px; border-radius: 10px;
+    transition: background .15s, transform .05s;
+  }
+  .btn:hover { background: #d9a43b; }
+  .btn:active { transform: translateY(1px); }
+  .btn[disabled] { opacity: .65; cursor: progress; }
+  .fineprint { font-size: .75rem; color: var(--muted); margin: 12px 0 0; text-align: center; }
+  .form-error { display: none; background: #fdecea; color: var(--danger); border-radius: 8px; padding: 10px 12px; font-size: .88rem; margin-bottom: 14px; }
+  .hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+  .success { display: none; text-align: center; padding: 20px 4px; }
+  .success .check { width: 64px; height: 64px; border-radius: 50%; background: #e3f3ea; display: grid; place-items: center; margin: 0 auto 16px; }
+  .success p { color: var(--ink-soft); }
+
+  /* Sections */
+  section { padding: 72px 0; }
+  .section-head { max-width: 720px; margin-bottom: 36px; }
+  .section-head h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+  .section-head p { color: var(--ink-soft); font-size: 1.05rem; margin: 0; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .tile { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
+  .tile .num { font-family: "Source Serif 4", Georgia, serif; font-size: 2rem; font-weight: 700; color: var(--accent-dark); line-height: 1; margin-bottom: 10px; }
+  .tile h3 { font-size: 1.15rem; }
+  .tile p { color: var(--ink-soft); margin: 0; font-size: .97rem; }
+
+  .quote { background: var(--navy); color: #fff; border-radius: var(--radius); padding: 32px; margin-top: 28px; position: relative; }
+  .quote blockquote { margin: 0; font-family: "Source Serif 4", Georgia, serif; font-size: clamp(1.1rem, 2.2vw, 1.35rem); line-height: 1.5; }
+  .quote cite { display: block; margin-top: 14px; font-style: normal; font-size: .85rem; color: #b9c4d6; }
+
+  .alt { background: #efece4; }
+  .qualify { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+  .checklist { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+  .checklist li { display: flex; gap: 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
+  .checklist li svg { flex: none; margin-top: 2px; }
+
+  .faq details { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; margin-bottom: 12px; padding: 0 20px; }
+  .faq summary { cursor: pointer; font-weight: 600; padding: 18px 0; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; font-size: 1.4rem; line-height: 1; color: var(--accent-dark); }
+  .faq details[open] summary::after { content: "–"; }
+  .faq details p { margin: 0 0 18px; color: var(--ink-soft); }
+
+  .final-cta { background: linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 100%); color: #fff; text-align: center; }
+  .final-cta p { color: #d4dceb; max-width: 40em; margin: 0 auto 24px; }
+  .final-cta .btn { width: auto; display: inline-block; text-decoration: none; padding: 15px 34px; }
+
+  footer { background: #0b1524; color: #9aa7bb; font-size: .8rem; padding: 36px 0; }
+  footer p { margin: 0 0 10px; }
+  footer strong { color: #d4dceb; }
+  footer a { color: #c9d3e3; }
+
+  @media (max-width: 900px) {
+    .hero .wrap, .qualify { grid-template-columns: 1fr; gap: 32px; }
+    .grid-3 { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 520px) {
+    .wrap { padding: 0 16px; }
+    .hero { padding: 36px 0 48px; }
+    .card { padding: 22px 18px; }
+    section { padding: 52px 0; }
+    .topbar .cta-mini { font-size: .8rem; padding: 7px 12px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#">Lindner <span>&amp;</span> Lindner</a>
+    <a class="cta-mini" href="#register">Free Case Review</a>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Meta AI Glasses Privacy Investigation</span>
+        <h1>Own Meta AI glasses? Strangers overseas may have watched your private recordings.</h1>
+        <p class="lede">A lawsuit alleges that video and audio captured by Ray-Ban Meta and other Meta AI glasses were sent to Meta's servers, reviewed and labeled by human contractors overseas, and used to train Meta's AI. Owners were never clearly told. Lindner &amp; Lindner is registering affected owners now.</p>
+        <ul>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8922a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>No cost to register. No fees unless there is a recovery.</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8922a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Takes less than a minute. No receipt needed to start.</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8922a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Your information is kept confidential.</li>
+        </ul>
+        <div class="badges">
+          <span class="badge">Ray-Ban Meta</span>
+          <span class="badge">Oakley Meta</span>
+          <span class="badge">Meta AI glasses bought in the U.S.</span>
+        </div>
+      </div>
+
+      <div class="card" id="register">
+        <div id="form-wrap">
+          <h2>See if you qualify</h2>
+          <p class="sub">Register for a free, no-obligation case review.</p>
+          <div class="form-error" id="form-error" role="alert"></div>
+          <form id="lead-form" novalidate>
+            <div class="row-2">
+              <div class="field">
+                <label for="first_name">First name</label>
+                <input id="first_name" name="first_name" autocomplete="given-name" required>
+                <div class="err">Please enter your first name.</div>
+              </div>
+              <div class="field">
+                <label for="last_name">Last name</label>
+                <input id="last_name" name="last_name" autocomplete="family-name" required>
+                <div class="err">Please enter your last name.</div>
+              </div>
+            </div>
+            <div class="field">
+              <label for="phone">Phone number</label>
+              <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="(555) 555-5555" required>
+              <div class="err">Please enter a valid 10-digit U.S. phone number.</div>
+            </div>
+            <div class="field">
+              <label for="email">Email address</label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+              <div class="err">Please enter a valid email address.</div>
+            </div>
+            <fieldset class="field" id="purchase-field">
+              <legend>When did you buy your glasses?</legend>
+              <div class="row-2">
+                <select id="purchase_month" name="purchase_month" aria-label="Purchase month" required>
+                  <option value="">Month</option>
+                </select>
+                <select id="purchase_year" name="purchase_year" aria-label="Purchase year" required>
+                  <option value="">Year</option>
+                </select>
+              </div>
+              <div class="err">Please select the month and year (your best guess is fine).</div>
+            </fieldset>
+
+            <div class="hp" aria-hidden="true">
+              <label for="company">Company</label>
+              <input id="company" name="company" tabindex="-1" autocomplete="off">
+            </div>
+
+            <label class="consent" id="consent-wrap">
+              <input type="checkbox" id="consent" name="consent" required>
+              <span id="consent-text">By checking this box and clicking "Submit My Information," I agree that Lindner &amp; Lindner and its representatives may contact me at the phone number and email I provided, including by calls and text messages using automated technology or prerecorded/artificial voice, about my potential claim. Consent is not a condition of any purchase or of representation. Message and data rates may apply. Reply STOP to opt out. I also agree to the <a href="#privacy">Privacy Policy</a> and understand that submitting this form does not create an attorney-client relationship.</span>
+            </label>
+
+            <button class="btn" type="submit" id="submit-btn">Submit My Information</button>
+            <p class="fineprint">🔒 Secure &amp; confidential. Attorney advertising.</p>
+          </form>
+        </div>
+
+        <div class="success" id="success" role="status" aria-live="polite">
+          <div class="check"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1e7a46" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div>
+          <h2>Thank you, you're registered.</h2>
+          <p>A member of the Lindner &amp; Lindner team will contact you shortly to review your case. Please keep your glasses and any purchase records (receipts, order emails, or account history) if you have them.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="what-happened">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">What the lawsuit alleges</span>
+        <h2>"Designed for privacy." That's what owners were told.</h2>
+        <p>According to a class action filed in federal court in San Francisco in March 2026, Meta marketed its AI glasses as private and in the user's control while footage from those glasses was allegedly being handled very differently.</p>
+      </div>
+      <div class="grid-3">
+        <div class="tile">
+          <div class="num">01</div>
+          <h3>Recordings sent to Meta</h3>
+          <p>Video and audio captured through the glasses, including footage from inside people's homes, was allegedly transmitted to Meta's servers.</p>
+        </div>
+        <div class="tile">
+          <div class="num">02</div>
+          <h3>Reviewed by humans overseas</h3>
+          <p>The footage was allegedly passed to a third-party contractor, where human workers in Kenya viewed, catalogued, and labeled it.</p>
+        </div>
+        <div class="tile">
+          <div class="num">03</div>
+          <h3>Used to train AI</h3>
+          <p>Those labeled recordings were allegedly used to train Meta's artificial intelligence models, without owners' knowledge or meaningful consent.</p>
+        </div>
+      </div>
+      <div class="quote">
+        <blockquote>"No reasonable consumer would understand 'designed for privacy, controlled by you' and similar promises like 'built for your privacy' to mean that deeply personal footage from inside their homes would be viewed and catalogued by human workers overseas."</blockquote>
+        <cite>From the complaint in <em>Bartone, et al. v. Meta Platforms Inc., et al.</em>, No. 3:26-cv-01897 (N.D. Cal.)</cite>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="qualify">
+    <div class="wrap qualify">
+      <div class="section-head" style="margin:0">
+        <span class="eyebrow">Who may qualify</span>
+        <h2>You may be eligible if you bought Meta AI glasses in the United States.</h2>
+        <p>You don't need to know whether your specific recordings were reviewed. If you owned and used the glasses, we want to hear from you.</p>
+      </div>
+      <ul class="checklist">
+        <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a5741a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg><span>You purchased Ray-Ban Meta, Oakley Meta, or other Meta AI glasses</span></li>
+        <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a5741a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg><span>You bought them in the United States, online or in a store</span></li>
+        <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a5741a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg><span>You used them to take photos, record video or audio, or talk to Meta AI</span></li>
+        <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a5741a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg><span>You weren't told your recordings could be viewed by human reviewers overseas</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">How it works</span>
+        <h2>Three simple steps</h2>
+      </div>
+      <div class="grid-3">
+        <div class="tile">
+          <div class="num">1</div>
+          <h3>Register</h3>
+          <p>Tell us your name, contact information, and roughly when you bought your glasses. It takes under a minute.</p>
+        </div>
+        <div class="tile">
+          <div class="num">2</div>
+          <h3>Free case review</h3>
+          <p>Our team will reach out to learn more about how you used your glasses and confirm your eligibility.</p>
+        </div>
+        <div class="tile">
+          <div class="num">3</div>
+          <h3>We handle the rest</h3>
+          <p>If you qualify, Lindner &amp; Lindner will pursue your claim. You pay nothing unless there is a recovery.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt faq" id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Questions</span>
+        <h2>Frequently asked questions</h2>
+      </div>
+      <details>
+        <summary>Does it cost anything to register?</summary>
+        <p>No. Registering and your case review are free. Cases like this are typically handled on a contingency basis, which means you pay no attorney's fees unless there is a recovery.</p>
+      </details>
+      <details>
+        <summary>Do I need my receipt?</summary>
+        <p>No receipt is needed to register. If you have proof of purchase, such as a receipt, an order confirmation email, or your Meta account history, please keep it. It may be helpful later.</p>
+      </details>
+      <details>
+        <summary>I don't remember exactly when I bought them. Can I still sign up?</summary>
+        <p>Yes. Your best estimate of the month and year is fine. We can confirm details with you later.</p>
+      </details>
+      <details>
+        <summary>I no longer have my glasses. Am I still eligible?</summary>
+        <p>Possibly. If you purchased and used Meta AI glasses in the U.S., you may still qualify even if you've since sold, lost, or stopped using them.</p>
+      </details>
+      <details>
+        <summary>Will Meta know I registered?</summary>
+        <p>Your information is kept confidential and is used only to evaluate and pursue your potential claim.</p>
+      </details>
+      <details>
+        <summary>Is there a deadline?</summary>
+        <p>Legal claims are subject to time limits. Registering early helps make sure your rights are protected.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="wrap">
+      <h2>Your private moments weren't meant for strangers.</h2>
+      <p>If you owned Meta AI glasses, find out whether you can join the fight to hold Meta accountable.</p>
+      <a class="btn" href="#register">Register for a Free Case Review</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>ATTORNEY ADVERTISING.</strong> This website is an advertisement by Lindner &amp; Lindner. Prior results do not guarantee a similar outcome.</p>
+    <p>The information on this page is for general informational purposes only and is not legal advice. Submitting information through this website does not create an attorney-client relationship. An attorney-client relationship is formed only by a signed written agreement.</p>
+    <p>Descriptions of the lawsuit reflect allegations made in <em>Bartone, et al. v. Meta Platforms Inc., et al.</em>, No. 3:26-cv-01897 (N.D. Cal., filed Mar. 4, 2026). These allegations have not been proven. Lindner &amp; Lindner is not counsel in that case. Meta, Ray-Ban, and Oakley are trademarks of their respective owners, which are not affiliated with and do not endorse this website.</p>
+    <p id="privacy">Privacy: information you submit is used only to evaluate and respond to your inquiry and is not sold. You may opt out of calls or texts at any time by replying STOP or asking us not to contact you.</p>
+    <p>&copy; <span id="yr"></span> Lindner &amp; Lindner. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  // ---- Configuration -------------------------------------------------------
+  // Set FORM_ENDPOINT to the URL that should receive leads (CRM webhook,
+  // Zapier/Make hook, Formspree, etc.). Leads are POSTed as JSON.
+  const FORM_ENDPOINT = "";
+  // -------------------------------------------------------------------------
+
+  document.getElementById("yr").textContent = new Date().getFullYear();
+
+  // Populate purchase month/year (Meta smart glasses first sold in 2021).
+  const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  const monthSel = document.getElementById("purchase_month");
+  months.forEach((m, i) => monthSel.add(new Option(m, String(i + 1).padStart(2, "0"))));
+  const yearSel = document.getElementById("purchase_year");
+  for (let y = new Date().getFullYear(); y >= 2021; y--) yearSel.add(new Option(y, y));
+
+  // Format phone as (555) 555-5555 while typing.
+  const phone = document.getElementById("phone");
+  const digits = v => v.replace(/\D/g, "").replace(/^1(?=\d{10})/, "");
+  phone.addEventListener("input", () => {
+    const d = digits(phone.value).slice(0, 10);
+    let out = d;
+    if (d.length > 6) out = `(${d.slice(0,3)}) ${d.slice(3,6)}-${d.slice(6)}`;
+    else if (d.length > 3) out = `(${d.slice(0,3)}) ${d.slice(3)}`;
+    else if (d.length) out = `(${d}`;
+    phone.value = out;
+  });
+
+  const form = document.getElementById("lead-form");
+  const setInvalid = (el, bad) => el.classList.toggle("invalid", bad);
+
+  function validate() {
+    let ok = true;
+    const check = (id, test) => {
+      const input = document.getElementById(id);
+      const bad = !test(input.value.trim());
+      setInvalid(input.closest(".field"), bad);
+      if (bad && ok) { input.focus(); ok = false; }
+    };
+    check("first_name", v => v.length > 0);
+    check("last_name", v => v.length > 0);
+    check("phone", v => /^[2-9]\d{2}[2-9]\d{6}$/.test(digits(v)));
+    check("email", v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v));
+    const purchaseBad = !monthSel.value || !yearSel.value;
+    setInvalid(document.getElementById("purchase-field"), purchaseBad);
+    if (purchaseBad && ok) { (monthSel.value ? yearSel : monthSel).focus(); ok = false; }
+    const consent = document.getElementById("consent");
+    setInvalid(document.getElementById("consent-wrap"), !consent.checked);
+    if (!consent.checked && ok) { consent.focus(); ok = false; }
+    return ok;
+  }
+
+  form.addEventListener("input", e => {
+    const f = e.target.closest(".field, .consent");
+    if (f) f.classList.remove("invalid");
+  });
+  form.addEventListener("change", e => {
+    const f = e.target.closest(".field, .consent");
+    if (f) f.classList.remove("invalid");
+  });
+
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    const errBox = document.getElementById("form-error");
+    errBox.style.display = "none";
+    if (!validate()) return;
+
+    // Honeypot: silently accept bots without sending.
+    if (document.getElementById("company").value) return showSuccess();
+
+    const params = new URLSearchParams(location.search);
+    const payload = {
+      campaign: "meta-ai-glasses-privacy",
+      first_name: form.first_name.value.trim(),
+      last_name: form.last_name.value.trim(),
+      phone: digits(form.phone.value),
+      email: form.email.value.trim(),
+      purchase_month: monthSel.value,
+      purchase_year: yearSel.value,
+      purchase_date: `${yearSel.value}-${monthSel.value}`,
+      // Consent record for TCPA compliance
+      consent: true,
+      consent_text: document.getElementById("consent-text").textContent.replace(/\s+/g, " ").trim(),
+      submitted_at: new Date().toISOString(),
+      page_url: location.href,
+      referrer: document.referrer,
+      user_agent: navigator.userAgent,
+      utm_source: params.get("utm_source") || "",
+      utm_medium: params.get("utm_medium") || "",
+      utm_campaign: params.get("utm_campaign") || "",
+      utm_content: params.get("utm_content") || "",
+      utm_term: params.get("utm_term") || "",
+    };
+
+    const btn = document.getElementById("submit-btn");
+    btn.disabled = true;
+    btn.textContent = "Submitting…";
+    try {
+      if (!FORM_ENDPOINT) {
+        console.warn("FORM_ENDPOINT is not configured; lead not sent.", payload);
+      } else {
+        const res = await fetch(FORM_ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "Accept": "application/json" },
+          body: JSON.stringify(payload),
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      }
+      showSuccess();
+    } catch (err) {
+      console.error(err);
+      errBox.textContent = "Sorry, something went wrong submitting your information. Please try again.";
+      errBox.style.display = "block";
+      btn.disabled = false;
+      btn.textContent = "Submit My Information";
+    }
+  });
+
+  function showSuccess() {
+    document.getElementById("form-wrap").style.display = "none";
+    document.getElementById("success").style.display = "block";
+    document.getElementById("register").scrollIntoView({ behavior: "smooth", block: "start" });
+    if (window.dataLayer) window.dataLayer.push({ event: "lead_submitted", campaign: "meta-ai-glasses-privacy" });
+  }
+</script>
+</body>
+</html>
