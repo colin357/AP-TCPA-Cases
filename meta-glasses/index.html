@@ -53,15 +53,10 @@
 
   /* Hero */
   .hero { background: linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 100%); color: #fff; padding: 56px 0 72px; }
-  .hero .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: start; }
+  .hero .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; }
   .eyebrow { display: inline-block; font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
   .hero h1 { font-size: clamp(2rem, 4.2vw, 3.1rem); }
   .hero .lede { font-size: 1.12rem; color: #d4dceb; max-width: 36em; }
-  .hero ul { list-style: none; padding: 0; margin: 28px 0 0; display: grid; gap: 12px; }
-  .hero li { display: flex; gap: 12px; align-items: flex-start; color: #e8edf6; }
-  .hero li svg { flex: none; margin-top: 3px; }
-  .badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
-  .badge { font-size: .85rem; border: 1px solid rgba(255,255,255,.22); border-radius: 999px; padding: 6px 14px; color: #dfe6f2; }
 
   /* Form card */
   .card { background: var(--surface); color: var(--ink); border-radius: var(--radius); box-shadow: var(--shadow); padding: 28px; }
@@ -189,19 +184,8 @@
   <div class="hero">
     <div class="wrap">
       <div>
-        <span class="eyebrow">Meta AI Glasses Privacy Investigation</span>
         <h1>Own Meta AI glasses? Strangers overseas may have watched your private recordings.</h1>
         <p class="lede">A lawsuit alleges that video and audio captured by Ray-Ban Meta and other Meta AI glasses were sent to Meta's servers, reviewed and labeled by human contractors overseas, and used to train Meta's AI. Owners were never clearly told. Lindner &amp; Lindner is registering affected owners now.</p>
-        <ul>
-          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8922a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>No cost to register. No fees unless there is a recovery.</li>
-          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8922a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Takes less than a minute. No receipt needed to start.</li>
-          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8922a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Your information is kept confidential.</li>
-        </ul>
-        <div class="badges">
-          <span class="badge">Ray-Ban Meta</span>
-          <span class="badge">Oakley Meta</span>
-          <span class="badge">Meta AI glasses bought in the U.S.</span>
-        </div>
       </div>
 
       <div class="card" id="register">
