@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data Breach Lawsuit | Lindner &amp; Lindner</title>
+<meta name="description" content="Got a data breach notice? If your Social Security number, financial, or medical information was exposed, you may be entitled to compensation. Register with Lindner & Lindner for a free case review.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f1b2d;
+    --ink-soft: #3c4a5e;
+    --muted: #66748a;
+    --bg: #f7f5f0;
+    --surface: #ffffff;
+    --line: #e2ddd2;
+    --navy: #12233d;
+    --navy-2: #1b3358;
+    --accent: #c8922a;
+    --accent-dark: #a5741a;
+    --danger: #b3261e;
+    --ok: #1e7a46;
+    --radius: 14px;
+    --shadow: 0 20px 50px -20px rgba(15, 27, 45, .35);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 { font-family: "Source Serif 4", Georgia, serif; line-height: 1.2; margin: 0 0 .5em; }
+  a { color: inherit; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+
+  /* Top bar */
+  .topbar { background: var(--navy); color: #fff; }
+  .topbar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 14px; padding-bottom: 14px; }
+  .brand { font-family: "Source Serif 4", Georgia, serif; font-weight: 700; font-size: 1.25rem; letter-spacing: .01em; text-decoration: none; }
+  .brand span { color: var(--accent); }
+  .topbar .cta-mini { font-size: .9rem; font-weight: 600; text-decoration: none; background: var(--accent); color: var(--navy); padding: 8px 14px; border-radius: 999px; white-space: nowrap; }
+  .topbar .cta-mini:hover { background: #d9a43b; }
+  .topbar .actions { display: flex; align-items: center; gap: 18px; }
+  .topbar .phone { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; text-decoration: none; white-space: nowrap; }
+  .topbar .phone small { display: block; font-size: .7rem; font-weight: 500; color: #b9c4d6; line-height: 1.1; }
+  .topbar .phone b { display: block; font-size: 1.05rem; line-height: 1.2; }
+
+  /* Hero */
+  .hero { background: linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 100%); color: #fff; padding: 56px 0 72px; }
+  .hero .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; }
+  .eyebrow { display: inline-block; font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+  .hero h1 { font-size: clamp(2rem, 4.2vw, 3.1rem); }
+  .hero .lede { font-size: 1.12rem; color: #d4dceb; max-width: 36em; }
+
+  /* Form card */
+  .card { background: var(--surface); color: var(--ink); border-radius: var(--radius); box-shadow: var(--shadow); padding: 28px; }
+  .card h2 { font-size: 1.5rem; margin-bottom: 4px; }
+  .card .sub { color: var(--muted); font-size: .95rem; margin: 0 0 20px; }
+  .field { margin-bottom: 16px; }
+  .field label, .field legend { display: block; font-weight: 600; font-size: .9rem; margin-bottom: 6px; padding: 0; }
+  .field input, .field select {
+    width: 100%; font: inherit; font-size: 1rem; color: var(--ink);
+    padding: 12px 14px; border: 1.5px solid #cfd6e0; border-radius: 10px; background: #fff;
+    transition: border-color .15s, box-shadow .15s;
+  }
+  .field input:focus, .field select:focus { outline: none; border-color: var(--navy-2); box-shadow: 0 0 0 3px rgba(27, 51, 88, .15); }
+  .field.invalid input, .field.invalid select { border-color: var(--danger); }
+  .field .err { display: none; color: var(--danger); font-size: .82rem; margin-top: 4px; }
+  .field.invalid .err { display: block; }
+  fieldset.field { border: 0; margin: 0 0 16px; padding: 0; min-width: 0; }
+  .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .consent { display: flex; gap: 10px; align-items: flex-start; font-size: .76rem; color: var(--ink-soft); line-height: 1.5; margin: 6px 0 18px; }
+  .consent input { margin-top: 3px; width: 18px; height: 18px; flex: none; accent-color: var(--navy); }
+  .consent.invalid { color: var(--danger); }
+  .btn {
+    width: 100%; border: 0; cursor: pointer; font: inherit; font-weight: 700; font-size: 1.05rem;
+    background: var(--accent); color: var(--navy); padding: 15px 18px; border-radius: 10px;
+    transition: background .15s, transform .05s;
+  }
+  .btn:hover { background: #d9a43b; }
+  .btn:active { transform: translateY(1px); }
+  .btn[disabled] { opacity: .65; cursor: progress; }
+  .fineprint { font-size: .75rem; color: var(--muted); margin: 12px 0 0; text-align: center; }
+  .form-error { display: none; background: #fdecea; color: var(--danger); border-radius: 8px; padding: 10px 12px; font-size: .88rem; margin-bottom: 14px; }
+  .hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+  .success { display: none; text-align: center; padding: 20px 4px; }
+  .success .check { width: 64px; height: 64px; border-radius: 50%; background: #e3f3ea; display: grid; place-items: center; margin: 0 auto 16px; }
+  .success p { color: var(--ink-soft); }
+
+  /* Sections */
+  section { padding: 72px 0; }
+  .section-head { max-width: 720px; margin-bottom: 36px; }
+  .section-head h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+  .section-head p { color: var(--ink-soft); font-size: 1.05rem; margin: 0; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .tile { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
+  .tile .num { font-family: "Source Serif 4", Georgia, serif; font-size: 2rem; font-weight: 700; color: var(--accent-dark); line-height: 1; margin-bottom: 10px; }
+  .tile h3 { font-size: 1.15rem; }
+  .tile p { color: var(--ink-soft); margin: 0; font-size: .97rem; }
+
+  .quote { background: var(--navy); color: #fff; border-radius: var(--radius); padding: 32px; margin-top: 28px; position: relative; }
+  .quote blockquote { margin: 0; font-family: "Source Serif 4", Georgia, serif; font-size: clamp(1.1rem, 2.2vw, 1.35rem); line-height: 1.5; }
+  .quote cite { display: block; margin-top: 14px; font-style: normal; font-size: .85rem; color: #b9c4d6; }
+
+  .alt { background: #efece4; }
+  .qualify { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+  .checklist { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+  .checklist li { display: flex; gap: 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
+  .checklist li svg { flex: none; margin-top: 2px; }
+
+  .faq details { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; margin-bottom: 12px; padding: 0 20px; }
+  .faq summary { cursor: pointer; font-weight: 600; padding: 18px 0; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; font-size: 1.4rem; line-height: 1; color: var(--accent-dark); }
+  .faq details[open] summary::after { content: "–"; }
+  .faq details p { margin: 0 0 18px; color: var(--ink-soft); }
+
+  .final-cta { background: linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 100%); color: #fff; text-align: center; }
+  .final-cta p { color: #d4dceb; max-width: 40em; margin: 0 auto 24px; }
+  .final-cta .btn { width: auto; display: inline-block; text-decoration: none; padding: 15px 34px; }
+  .final-cta .call { margin: 18px 0 0; font-size: .95rem; }
+  .final-cta .call a { color: #fff; font-weight: 700; text-decoration: none; border-bottom: 1px solid var(--accent); }
+
+  footer { background: #0b1524; color: #9aa7bb; font-size: .8rem; padding: 36px 0; }
+  footer p { margin: 0 0 10px; }
+  footer strong { color: #d4dceb; }
+  footer a { color: #c9d3e3; }
+
+  @media (max-width: 900px) {
+    .hero .wrap, .qualify { grid-template-columns: 1fr; gap: 32px; }
+    .grid-3 { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 520px) {
+    .wrap { padding: 0 16px; }
+    .hero { padding: 36px 0 48px; }
+    .card { padding: 22px 18px; }
+    section { padding: 52px 0; }
+    .topbar .cta-mini { display: none; }
+    .topbar .phone small { display: none; }
+    .brand { font-size: 1.1rem; white-space: nowrap; }
+    .topbar .phone b { font-size: .95rem; }
+    .topbar .wrap { gap: 10px; }
+  }
+
+  .opts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; }
+  .hero .wrap { align-items: start; }
+  .hero .wrap > div:first-child { padding-top: 24px; }
+  .field .opt { display: flex; gap: 8px; align-items: center; font-size: .9rem; font-weight: 500; margin: 0; cursor: pointer; }
+  .field .opt input { width: 17px; height: 17px; flex: none; accent-color: var(--navy); margin: 0; }
+  .note { background: #fff7e6; border: 1px solid #f0dcae; border-radius: 10px; padding: 10px 12px; font-size: .82rem; color: var(--ink-soft); margin: 0 0 16px; }
+  @media (max-width: 520px) { .opts { grid-template-columns: 1fr; } }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LegalService",
+  "name": "Lindner & Lindner",
+  "telephone": "+1-888-818-2018",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "205 Floral Vale Blvd",
+    "addressLocality": "Morrisville",
+    "addressRegion": "PA",
+    "postalCode": "19067",
+    "addressCountry": "US"
+  }
+}
+</script>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '720948125834211');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=720948125834211&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#">Lindner <span>&amp;</span> Lindner</a>
+    <div class="actions">
+      <a class="phone" href="tel:+18888182018" aria-label="Call Lindner and Lindner at (888) 818-2018">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8922a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span><small>Free case review</small><b>(888) 818-2018</b></span>
+      </a>
+      <a class="cta-mini" href="#register">Register Now</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Data breach victims</span>
+        <h1>Got a data breach notice? You may be entitled to compensation.</h1>
+        <p class="lede">When a company fails to protect your Social Security number, bank details, or medical records, you're the one left dealing with fraud alerts, frozen credit, and years of risk. If your personal information was exposed in a data breach, Lindner &amp; Lindner can review your situation for free.</p>
+      </div>
+
+      <div class="card" id="register">
+        <div id="form-wrap">
+          <h2>See if you qualify</h2>
+          <p class="sub">Register for a free, no-obligation case review.</p>
+          <div class="form-error" id="form-error" role="alert"></div>
+          <form id="lead-form" novalidate>
+            <div class="row-2">
+              <div class="field">
+                <label for="first_name">First name</label>
+                <input id="first_name" name="first_name" autocomplete="given-name" required>
+                <div class="err">Please enter your first name.</div>
+              </div>
+              <div class="field">
+                <label for="last_name">Last name</label>
+                <input id="last_name" name="last_name" autocomplete="family-name" required>
+                <div class="err">Please enter your last name.</div>
+              </div>
+            </div>
+            <div class="field">
+              <label for="phone">Phone number</label>
+              <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="(555) 555-5555" required>
+              <div class="err">Please enter a valid 10-digit U.S. phone number.</div>
+            </div>
+            <div class="field">
+              <label for="email">Email address</label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+              <div class="err">Please enter a valid email address.</div>
+            </div>
+            <div class="field">
+              <label for="breach_company">Which company notified you of the breach?</label>
+              <input id="breach_company" name="breach_company" autocomplete="off" placeholder="e.g. your bank, hospital, or retailer" required>
+              <div class="err">Please tell us which company had the breach (your best guess is fine).</div>
+            </div>
+            <fieldset class="field" id="data-field">
+              <legend>What information was exposed? <span style="font-weight:400;color:var(--muted)">(check all that apply)</span></legend>
+              <div class="opts">
+                <label class="opt"><input type="checkbox" name="data_types" value="ssn">Social Security number</label>
+                <label class="opt"><input type="checkbox" name="data_types" value="financial">Bank or card info</label>
+                <label class="opt"><input type="checkbox" name="data_types" value="medical">Medical / health info</label>
+                <label class="opt"><input type="checkbox" name="data_types" value="drivers_license">Driver's license / ID</label>
+                <label class="opt"><input type="checkbox" name="data_types" value="dob">Date of birth</label>
+                <label class="opt"><input type="checkbox" name="data_types" value="unsure">Not sure</label>
+              </div>
+              <div class="err">Please check at least one option (or "Not sure").</div>
+            </fieldset>
+            <div class="field">
+              <label for="harm">Since the breach, have you experienced any of these?</label>
+              <select id="harm" name="harm" required>
+                <option value="">Select one</option>
+                <option value="fraud">Fraudulent charges or accounts opened in my name</option>
+                <option value="identity_theft">Identity theft or tax return fraud</option>
+                <option value="phishing">More scam calls, texts, or phishing emails</option>
+                <option value="time_spent">Time or money spent protecting my credit</option>
+                <option value="none">Nothing yet, but I'm worried</option>
+              </select>
+              <div class="err">Please select an option.</div>
+            </div>
+
+            <p class="note">Never enter your Social Security number or account numbers here. We will never ask for them on this form.</p>
+
+            <div class="hp" aria-hidden="true">
+              <label for="company">Company</label>
+              <input id="company" name="company" tabindex="-1" autocomplete="off">
+            </div>
+
+            <label class="consent" id="consent-wrap">
+              <input type="checkbox" id="consent" name="consent" required>
+              <span id="consent-text">By checking this box and clicking "Submit My Information," I agree that Lindner &amp; Lindner and its representatives may contact me at the phone number and email I provided, including by calls and text messages using automated technology or prerecorded/artificial voice, about my potential claim. Consent is not a condition of any purchase or of representation. Message and data rates may apply. Reply STOP to opt out. I also agree to the <a href="#privacy">Privacy Policy</a> and understand that submitting this form does not create an attorney-client relationship.</span>
+            </label>
+
+            <button class="btn" type="submit" id="submit-btn">Submit My Information</button>
+            <p class="fineprint">🔒 Secure &amp; confidential. Attorney advertising.</p>
+          </form>
+        </div>
+
+        <div class="success" id="success" role="status" aria-live="polite">
+          <div class="check"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1e7a46" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div>
+          <h2>Thank you, you're registered.</h2>
+          <p>A member of the Lindner &amp; Lindner team will contact you shortly to review your case. Please keep any breach notification letters or emails you received, along with records of fraud, credit monitoring, or time spent protecting your accounts.</p>
+          <p>Questions in the meantime? Call us at <a href="tel:+18888182018"><strong>(888) 818-2018</strong></a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="why">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Why it matters</span>
+        <h2>Companies that collect your data have a duty to protect it.</h2>
+        <p>Businesses, hospitals, banks, and service providers ask for your most sensitive information. When they don't use reasonable security, or wait too long to tell you it was stolen, the law may hold them accountable.</p>
+      </div>
+      <div class="grid-3">
+        <div class="tile">
+          <div class="num">01</div>
+          <h3>Your data was stolen</h3>
+          <p>Hackers or unauthorized parties accessed personal information a company stored about you, such as your SSN, financial accounts, or health records.</p>
+        </div>
+        <div class="tile">
+          <div class="num">02</div>
+          <h3>The risk doesn't expire</h3>
+          <p>Stolen Social Security numbers and dates of birth can't simply be changed. They can be sold and misused for identity theft years later.</p>
+        </div>
+        <div class="tile">
+          <div class="num">03</div>
+          <h3>You may be compensated</h3>
+          <p>Data breach claims may seek reimbursement for out-of-pocket losses, lost time, credit monitoring, and other harm caused by the breach.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="qualify">
+    <div class="wrap qualify">
+      <div class="section-head" style="margin:0">
+        <span class="eyebrow">Who may qualify</span>
+        <h2>You may be eligible if your personal information was exposed.</h2>
+        <p>You don't need to have suffered identity theft yet. If a company told you your information may have been compromised, we want to hear from you.</p>
+      </div>
+      <ul class="checklist">
+        <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a5741a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg><span>You received a letter or email saying your information was involved in a data breach</span></li>
+        <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a5741a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg><span>Sensitive data was exposed, like your SSN, financial, medical, or ID information</span></li>
+        <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a5741a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg><span>You live in the United States</span></li>
+        <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a5741a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg><span>You've spent time or money dealing with the breach, or worry about future misuse</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">How it works</span>
+        <h2>Three simple steps</h2>
+      </div>
+      <div class="grid-3">
+        <div class="tile">
+          <div class="num">1</div>
+          <h3>Register</h3>
+          <p>Tell us your contact information, which company had the breach, and what was exposed. It takes about a minute.</p>
+        </div>
+        <div class="tile">
+          <div class="num">2</div>
+          <h3>Free case review</h3>
+          <p>Our team will reach out to learn more about the breach notice you received and how it has affected you.</p>
+        </div>
+        <div class="tile">
+          <div class="num">3</div>
+          <h3>We handle the rest</h3>
+          <p>If you qualify, Lindner &amp; Lindner will pursue your claim. You pay nothing unless there is a recovery.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt faq" id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Questions</span>
+        <h2>Frequently asked questions</h2>
+      </div>
+      <details>
+        <summary>Does it cost anything to register?</summary>
+        <p>No. Registering and your case review are free. Cases like this are typically handled on a contingency basis, which means you pay no attorney's fees unless there is a recovery.</p>
+      </details>
+      <details>
+        <summary>I haven't had any fraud yet. Can I still sign up?</summary>
+        <p>Yes. Many people affected by a breach haven't seen fraud yet. The exposure of your information, and the time and cost of protecting yourself, may still matter.</p>
+      </details>
+      <details>
+        <summary>I lost or threw away my breach notice letter. Is that a problem?</summary>
+        <p>No. You can still register. If you remember which company sent it, that's enough to start. If you find the letter or email later, please keep it.</p>
+      </details>
+      <details>
+        <summary>I already signed up for the free credit monitoring the company offered. Does that affect my rights?</summary>
+        <p>Generally, enrolling in credit monitoring offered after a breach doesn't waive your right to pursue a claim, but terms vary. We can review any paperwork with you during your case review.</p>
+      </details>
+      <details>
+        <summary>What should I do right now to protect myself?</summary>
+        <p>Consider freezing your credit with Equifax, Experian, and TransUnion, reviewing your bank and card statements, and watching for unfamiliar accounts. You can report identity theft at IdentityTheft.gov. Be cautious of anyone contacting you about the breach and asking for your SSN or passwords.</p>
+      </details>
+      <details>
+        <summary>Is there a deadline?</summary>
+        <p>Legal claims are subject to time limits, and some data breach cases move quickly. Registering early helps make sure your rights are protected.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="wrap">
+      <h2>Your information was their responsibility.</h2>
+      <p>If a company let your personal data fall into the wrong hands, find out whether you can hold them accountable.</p>
+      <a class="btn" href="#register">Register for a Free Case Review</a>
+      <p class="call">Prefer to talk? Call <a href="tel:+18888182018">(888) 818-2018</a></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>ATTORNEY ADVERTISING.</strong> This website is an advertisement by Lindner &amp; Lindner. Prior results do not guarantee a similar outcome.</p>
+    <p>The information on this page is for general informational purposes only and is not legal advice. Submitting information through this website does not create an attorney-client relationship. An attorney-client relationship is formed only by a signed written agreement. Not every person affected by a data breach will have a claim, and no outcome or compensation is guaranteed.</p>
+    <p>Lindner &amp; Lindner is not affiliated with any company that has experienced a data breach, and this website is not an official breach notification or claims administration site. Company names are trademarks of their respective owners.</p>
+    <p id="privacy">Privacy: information you submit is used only to evaluate and respond to your inquiry and is not sold. You may opt out of calls or texts at any time by replying STOP or asking us not to contact you.</p>
+    <p><strong>Lindner &amp; Lindner</strong> &middot; 205 Floral Vale Blvd, Morrisville, PA 19067 &middot; <a href="tel:+18888182018">(888) 818-2018</a></p>
+    <p>&copy; <span id="yr"></span> Lindner &amp; Lindner. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  // ---- Configuration -------------------------------------------------------
+  // Set FORM_ENDPOINT to the URL that should receive leads (CRM webhook,
+  // Zapier/Make hook, Formspree, etc.). Leads are POSTed as JSON.
+  const META_PIXEL_ID = "720948125834211";
+  const FORM_ENDPOINT = "https://services.leadconnectorhq.com/hooks/3XYsA2kux3HSSbeG1HUW/webhook-trigger/fc6e982c-9896-4e5c-b48c-f4524e736d20";
+  const CAMPAIGN = "data-breach";
+  // -------------------------------------------------------------------------
+
+  document.getElementById("yr").textContent = new Date().getFullYear();
+
+  // Format phone as (555) 555-5555 while typing.
+  const phone = document.getElementById("phone");
+  const digits = v => v.replace(/\D/g, "").replace(/^1(?=\d{10})/, "");
+  phone.addEventListener("input", () => {
+    const d = digits(phone.value).slice(0, 10);
+    let out = d;
+    if (d.length > 6) out = `(${d.slice(0,3)}) ${d.slice(3,6)}-${d.slice(6)}`;
+    else if (d.length > 3) out = `(${d.slice(0,3)}) ${d.slice(3)}`;
+    else if (d.length) out = `(${d}`;
+    phone.value = out;
+  });
+
+  const form = document.getElementById("lead-form");
+  const setInvalid = (el, bad) => el.classList.toggle("invalid", bad);
+  const dataBoxes = () => [...form.querySelectorAll('input[name="data_types"]')];
+
+  // "Not sure" is exclusive of the specific data types.
+  form.addEventListener("change", e => {
+    if (e.target.name !== "data_types" || !e.target.checked) return;
+    const unsure = e.target.value === "unsure";
+    dataBoxes().forEach(b => { if (b !== e.target && (unsure || b.value === "unsure")) b.checked = false; });
+  });
+
+  function validate() {
+    let ok = true;
+    const check = (id, test) => {
+      const input = document.getElementById(id);
+      const bad = !test(input.value.trim());
+      setInvalid(input.closest(".field"), bad);
+      if (bad && ok) { input.focus(); ok = false; }
+    };
+    check("first_name", v => v.length > 0);
+    check("last_name", v => v.length > 0);
+    check("phone", v => /^[2-9]\d{2}[2-9]\d{6}$/.test(digits(v)));
+    check("email", v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v));
+    check("breach_company", v => v.length > 0);
+    const dataBad = !dataBoxes().some(b => b.checked);
+    setInvalid(document.getElementById("data-field"), dataBad);
+    if (dataBad && ok) { dataBoxes()[0].focus(); ok = false; }
+    check("harm", v => v.length > 0);
+    const consent = document.getElementById("consent");
+    setInvalid(document.getElementById("consent-wrap"), !consent.checked);
+    if (!consent.checked && ok) { consent.focus(); ok = false; }
+    return ok;
+  }
+
+  form.addEventListener("input", e => {
+    const f = e.target.closest(".field, .consent");
+    if (f) f.classList.remove("invalid");
+  });
+  form.addEventListener("change", e => {
+    const f = e.target.closest(".field, .consent");
+    if (f) f.classList.remove("invalid");
+  });
+
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    const errBox = document.getElementById("form-error");
+    errBox.style.display = "none";
+    if (!validate()) return;
+
+    // Honeypot: silently accept bots without sending.
+    if (document.getElementById("company").value) return showSuccess();
+
+    const params = new URLSearchParams(location.search);
+    const harmSel = document.getElementById("harm");
+    const payload = {
+      campaign: CAMPAIGN,
+      first_name: form.first_name.value.trim(),
+      last_name: form.last_name.value.trim(),
+      phone: digits(form.phone.value),
+      email: form.email.value.trim(),
+      breach_company: form.breach_company.value.trim(),
+      data_types: dataBoxes().filter(b => b.checked).map(b => b.value).join(","),
+      harm: harmSel.value,
+      harm_label: harmSel.options[harmSel.selectedIndex].text,
+      // Consent record for TCPA compliance
+      consent: true,
+      consent_text: document.getElementById("consent-text").textContent.replace(/\s+/g, " ").trim(),
+      submitted_at: new Date().toISOString(),
+      page_url: location.href,
+      referrer: document.referrer,
+      user_agent: navigator.userAgent,
+      utm_source: params.get("utm_source") || "",
+      utm_medium: params.get("utm_medium") || "",
+      utm_campaign: params.get("utm_campaign") || "",
+      utm_content: params.get("utm_content") || "",
+      utm_term: params.get("utm_term") || "",
+    };
+
+    const btn = document.getElementById("submit-btn");
+    btn.disabled = true;
+    btn.textContent = "Submitting…";
+    try {
+      if (!FORM_ENDPOINT) {
+        console.warn("FORM_ENDPOINT is not configured; lead not sent.", payload);
+      } else {
+        const res = await fetch(FORM_ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "Accept": "application/json" },
+          body: JSON.stringify(payload),
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      }
+      trackMetaLead(payload);
+      showSuccess();
+    } catch (err) {
+      console.error(err);
+      errBox.textContent = "Sorry, something went wrong submitting your information. Please try again.";
+      errBox.style.display = "block";
+      btn.disabled = false;
+      btn.textContent = "Submit My Information";
+    }
+  });
+
+  // Report the lead to Meta. Re-initializing the pixel with the lead's details
+  // enables Advanced Matching; the pixel hashes these values (SHA-256) in the
+  // browser before sending them.
+  function trackMetaLead(p) {
+    if (typeof fbq !== "function") return;
+    try {
+      fbq("init", META_PIXEL_ID, {
+        em: p.email.toLowerCase(),
+        ph: "1" + p.phone,
+        fn: p.first_name.toLowerCase(),
+        ln: p.last_name.toLowerCase(),
+        country: "us",
+      });
+      fbq("track", "Lead", { content_name: p.campaign }, { eventID: `lead-${p.phone}-${Date.now()}` });
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  function showSuccess() {
+    document.getElementById("form-wrap").style.display = "none";
+    document.getElementById("success").style.display = "block";
+    document.getElementById("register").scrollIntoView({ behavior: "smooth", block: "start" });
+    if (window.dataLayer) window.dataLayer.push({ event: "lead_submitted", campaign: CAMPAIGN });
+  }
+</script>
+</body>
+</html>
