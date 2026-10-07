@@ -155,6 +155,29 @@
   .field .opt input { width: 17px; height: 17px; flex: none; accent-color: var(--navy); margin: 0; }
   .note { background: #fff7e6; border: 1px solid #f0dcae; border-radius: 10px; padding: 10px 12px; font-size: .82rem; color: var(--ink-soft); margin: 0 0 16px; }
   @media (max-width: 520px) { .opts { grid-template-columns: 1fr; } }
+
+  /* Two-step form */
+  .progress { margin: 0 0 20px; }
+  .progress .labels { display: flex; justify-content: space-between; font-size: .78rem; font-weight: 600; color: var(--muted); margin-bottom: 6px; }
+  .progress .labels b { color: var(--navy-2); }
+  .progress .track { height: 6px; background: #e8ecf2; border-radius: 999px; overflow: hidden; }
+  .progress .bar { height: 100%; width: 50%; background: var(--accent); border-radius: inherit; transition: width .45s ease; }
+  .steps { overflow: hidden; }
+  .step[hidden] { display: none; }
+  .step.out-left { animation: outLeft .28s ease-in forwards; }
+  .step.out-right { animation: outRight .28s ease-in forwards; }
+  .step.in-right { animation: inRight .38s cubic-bezier(.2,.8,.2,1) both; }
+  .step.in-left { animation: inLeft .38s cubic-bezier(.2,.8,.2,1) both; }
+  @keyframes outLeft { to { opacity: 0; transform: translateX(-60px); } }
+  @keyframes outRight { to { opacity: 0; transform: translateX(60px); } }
+  @keyframes inRight { from { opacity: 0; transform: translateX(60px); } to { opacity: 1; transform: none; } }
+  @keyframes inLeft { from { opacity: 0; transform: translateX(-60px); } to { opacity: 1; transform: none; } }
+  .back { display: block; margin: 12px auto 0; background: none; border: 0; font: inherit; font-size: .88rem; font-weight: 600; color: var(--muted); cursor: pointer; padding: 4px 8px; }
+  .back:hover { color: var(--navy-2); }
+  @media (prefers-reduced-motion: reduce) {
+    .step.out-left, .step.out-right, .step.in-right, .step.in-left { animation-duration: 1ms; }
+    .progress .bar { transition: none; }
+  }
 </style>
 <script type="application/ld+json">
 {
@@ -219,7 +242,13 @@ src="https://www.facebook.com/tr?id=720948125834211&ev=PageView&noscript=1"
           <h2>See if you qualify</h2>
           <p class="sub">Register for a free, no-obligation case review.</p>
           <div class="form-error" id="form-error" role="alert"></div>
+          <div class="progress" aria-hidden="true">
+            <div class="labels"><span id="step-label"><b>Step 1 of 2</b> &middot; Your contact info</span><span id="step-pct">50%</span></div>
+            <div class="track"><div class="bar" id="step-bar"></div></div>
+          </div>
           <form id="lead-form" novalidate>
+            <div class="steps">
+            <div class="step" id="step-1" role="group" aria-label="Step 1 of 2: Your contact info">
             <div class="row-2">
               <div class="field">
                 <label for="first_name">First name</label>
@@ -242,6 +271,11 @@ src="https://www.facebook.com/tr?id=720948125834211&ev=PageView&noscript=1"
               <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
               <div class="err">Please enter a valid email address.</div>
             </div>
+            <button class="btn" type="submit" id="next-btn">Next &rarr;</button>
+            <p class="fineprint">🔒 Secure &amp; confidential. Attorney advertising.</p>
+            </div>
+
+            <div class="step" id="step-2" role="group" aria-label="Step 2 of 2: About the breach" hidden>
             <div class="field">
               <label for="breach_company">Which company notified you of the breach?</label>
               <input id="breach_company" name="breach_company" autocomplete="off" placeholder="e.g. your bank, hospital, or retailer" required>
@@ -285,7 +319,9 @@ src="https://www.facebook.com/tr?id=720948125834211&ev=PageView&noscript=1"
             </label>
 
             <button class="btn" type="submit" id="submit-btn">Submit My Information</button>
-            <p class="fineprint">🔒 Secure &amp; confidential. Attorney advertising.</p>
+            <button class="back" type="button" id="back-btn">&larr; Back</button>
+            </div>
+            </div>
           </form>
         </div>
 
@@ -427,7 +463,7 @@ src="https://www.facebook.com/tr?id=720948125834211&ev=PageView&noscript=1"
   // Set FORM_ENDPOINT to the URL that should receive leads (CRM webhook,
   // Zapier/Make hook, Formspree, etc.). Leads are POSTed as JSON.
   const META_PIXEL_ID = "720948125834211";
-  const FORM_ENDPOINT = "https://services.leadconnectorhq.com/hooks/3XYsA2kux3HSSbeG1HUW/webhook-trigger/fc6e982c-9896-4e5c-b48c-f4524e736d20";
+  const FORM_ENDPOINT = "https://services.leadconnectorhq.com/hooks/3XYsA2kux3HSSbeG1HUW/webhook-trigger/7mSaIyCqAxc9a4fztLAV";
   const CAMPAIGN = "data-breach";
   // -------------------------------------------------------------------------
 
@@ -456,7 +492,7 @@ src="https://www.facebook.com/tr?id=720948125834211&ev=PageView&noscript=1"
     dataBoxes().forEach(b => { if (b !== e.target && (unsure || b.value === "unsure")) b.checked = false; });
   });
 
-  function validate() {
+  function validate(step) {
     let ok = true;
     const check = (id, test) => {
       const input = document.getElementById(id);
@@ -468,6 +504,7 @@ src="https://www.facebook.com/tr?id=720948125834211&ev=PageView&noscript=1"
     check("last_name", v => v.length > 0);
     check("phone", v => /^[2-9]\d{2}[2-9]\d{6}$/.test(digits(v)));
     check("email", v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v));
+    if (step === 1) return ok;
     check("breach_company", v => v.length > 0);
     const dataBad = !dataBoxes().some(b => b.checked);
     setInvalid(document.getElementById("data-field"), dataBad);
@@ -488,11 +525,48 @@ src="https://www.facebook.com/tr?id=720948125834211&ev=PageView&noscript=1"
     if (f) f.classList.remove("invalid");
   });
 
+  // ---- Two-step flow -------------------------------------------------------
+  let step = 1;
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function goTo(next) {
+    if (next === step) return;
+    const from = document.getElementById(`step-${step}`);
+    const to = document.getElementById(`step-${next}`);
+    const fwd = next > step;
+    step = next;
+    document.getElementById("step-label").innerHTML = next === 1
+      ? "<b>Step 1 of 2</b> &middot; Your contact info"
+      : "<b>Step 2 of 2</b> &middot; About the breach";
+    document.getElementById("step-pct").textContent = next === 1 ? "50%" : "90%";
+    document.getElementById("step-bar").style.width = next === 1 ? "50%" : "90%";
+
+    const swap = () => {
+      from.hidden = true;
+      from.className = "step";
+      to.hidden = false;
+      to.className = `step ${fwd ? "in-right" : "in-left"}`;
+      const first = to.querySelector("input, select");
+      if (first) first.focus({ preventScroll: true });
+      const card = document.getElementById("register");
+      if (card.getBoundingClientRect().top < 0) card.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+    };
+    if (reduceMotion) return swap();
+    from.className = `step ${fwd ? "out-left" : "out-right"}`;
+    from.addEventListener("animationend", swap, { once: true });
+  }
+
+  document.getElementById("back-btn").addEventListener("click", () => goTo(1));
+
   form.addEventListener("submit", async e => {
     e.preventDefault();
     const errBox = document.getElementById("form-error");
     errBox.style.display = "none";
-    if (!validate()) return;
+    if (step === 1) {
+      if (validate(1)) goTo(2);
+      return;
+    }
+    if (!validate(2)) return;
 
     // Honeypot: silently accept bots without sending.
     if (document.getElementById("company").value) return showSuccess();
