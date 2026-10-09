@@ -156,12 +156,14 @@
   .note { background: #fff7e6; border: 1px solid #f0dcae; border-radius: 10px; padding: 10px 12px; font-size: .82rem; color: var(--ink-soft); margin: 0 0 16px; }
   @media (max-width: 520px) { .opts { grid-template-columns: 1fr; } }
 
-  /* Two-step form */
+  .opts.yn { grid-template-columns: repeat(3, auto); justify-content: start; gap: 8px 22px; }
+
+  /* Multi-step form */
   .progress { margin: 0 0 20px; }
   .progress .labels { display: flex; justify-content: space-between; font-size: .78rem; font-weight: 600; color: var(--muted); margin-bottom: 6px; }
   .progress .labels b { color: var(--navy-2); }
   .progress .track { height: 6px; background: #e8ecf2; border-radius: 999px; overflow: hidden; }
-  .progress .bar { height: 100%; width: 50%; background: var(--accent); border-radius: inherit; transition: width .45s ease; }
+  .progress .bar { height: 100%; width: 33%; background: var(--accent); border-radius: inherit; transition: width .45s ease; }
   .steps { overflow: hidden; }
   .step[hidden] { display: none; }
   .step.out-left { animation: outLeft .28s ease-in forwards; }
@@ -243,12 +245,12 @@ src="https://www.facebook.com/tr?id=720948125834211&ev=PageView&noscript=1"
           <p class="sub">Register for a free, no-obligation case review.</p>
           <div class="form-error" id="form-error" role="alert"></div>
           <div class="progress" aria-hidden="true">
-            <div class="labels"><span id="step-label"><b>Step 1 of 2</b> &middot; Your contact info</span><span id="step-pct">50%</span></div>
+            <div class="labels"><span id="step-label"><b>Step 1 of 3</b> &middot; Your contact info</span><span id="step-pct">33%</span></div>
             <div class="track"><div class="bar" id="step-bar"></div></div>
           </div>
           <form id="lead-form" novalidate>
             <div class="steps">
-            <div class="step" id="step-1" role="group" aria-label="Step 1 of 2: Your contact info">
+            <div class="step" id="step-1" role="group" aria-label="Step 1 of 3: Your contact info">
             <div class="row-2">
               <div class="field">
                 <label for="first_name">First name</label>
@@ -275,7 +277,7 @@ src="https://www.facebook.com/tr?id=720948125834211&ev=PageView&noscript=1"
             <p class="fineprint">🔒 Secure &amp; confidential. Attorney advertising.</p>
             </div>
 
-            <div class="step" id="step-2" role="group" aria-label="Step 2 of 2: About the breach" hidden>
+            <div class="step" id="step-2" role="group" aria-label="Step 2 of 3: About the breach" hidden>
             <div class="field">
               <label for="breach_company">Which company notified you of the breach?</label>
               <input id="breach_company" name="breach_company" autocomplete="off" placeholder="e.g. your bank, hospital, or retailer" required>
@@ -305,6 +307,34 @@ src="https://www.facebook.com/tr?id=720948125834211&ev=PageView&noscript=1"
               </select>
               <div class="err">Please select an option.</div>
             </div>
+            <button class="btn" type="submit">Next &rarr;</button>
+            <button class="back" type="button" data-back="1">&larr; Back</button>
+            </div>
+
+            <div class="step" id="step-3" role="group" aria-label="Step 3 of 3: Your banking" hidden>
+            <div class="field">
+              <label for="bank">Who do you currently bank with?</label>
+              <input id="bank" name="bank" autocomplete="off" placeholder="e.g. Chase or a local credit union" required>
+              <div class="err">Please enter the name of your bank or credit union.</div>
+            </div>
+            <fieldset class="field" id="online-field">
+              <legend>Have you visited any financial institutions online or applied for a loan?</legend>
+              <div class="opts yn">
+                <label class="opt"><input type="radio" name="online_finance" value="yes">Yes</label>
+                <label class="opt"><input type="radio" name="online_finance" value="no">No</label>
+                <label class="opt"><input type="radio" name="online_finance" value="unsure">Not sure</label>
+              </div>
+              <div class="err">Please choose an answer.</div>
+            </fieldset>
+            <fieldset class="field" id="calls-field">
+              <legend>Since filling out an online banking or loan form, have you received a large number of calls or texts from unrelated companies?</legend>
+              <div class="opts yn">
+                <label class="opt"><input type="radio" name="unwanted_calls" value="yes">Yes</label>
+                <label class="opt"><input type="radio" name="unwanted_calls" value="no">No</label>
+                <label class="opt"><input type="radio" name="unwanted_calls" value="unsure">Not sure</label>
+              </div>
+              <div class="err">Please choose an answer.</div>
+            </fieldset>
 
             <p class="note">Never enter your Social Security number or account numbers here. We will never ask for them on this form.</p>
 
@@ -319,7 +349,7 @@ src="https://www.facebook.com/tr?id=720948125834211&ev=PageView&noscript=1"
             </label>
 
             <button class="btn" type="submit" id="submit-btn">Submit My Information</button>
-            <button class="back" type="button" id="back-btn">&larr; Back</button>
+            <button class="back" type="button" data-back="2">&larr; Back</button>
             </div>
             </div>
           </form>
@@ -483,6 +513,7 @@ src="https://www.facebook.com/tr?id=720948125834211&ev=PageView&noscript=1"
 
   const form = document.getElementById("lead-form");
   const setInvalid = (el, bad) => el.classList.toggle("invalid", bad);
+  const radioVal = name => (form.querySelector(`input[name="${name}"]:checked`) || {}).value || "";
   const dataBoxes = () => [...form.querySelectorAll('input[name="data_types"]')];
 
   // "Not sure" is exclusive of the specific data types.
@@ -500,16 +531,29 @@ src="https://www.facebook.com/tr?id=720948125834211&ev=PageView&noscript=1"
       setInvalid(input.closest(".field"), bad);
       if (bad && ok) { input.focus(); ok = false; }
     };
-    check("first_name", v => v.length > 0);
-    check("last_name", v => v.length > 0);
-    check("phone", v => /^[2-9]\d{2}[2-9]\d{6}$/.test(digits(v)));
-    check("email", v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v));
-    if (step === 1) return ok;
-    check("breach_company", v => v.length > 0);
-    const dataBad = !dataBoxes().some(b => b.checked);
-    setInvalid(document.getElementById("data-field"), dataBad);
-    if (dataBad && ok) { dataBoxes()[0].focus(); ok = false; }
-    check("harm", v => v.length > 0);
+    const checkRadio = (name, fieldId) => {
+      const bad = !radioVal(name);
+      setInvalid(document.getElementById(fieldId), bad);
+      if (bad && ok) { form.querySelector(`input[name="${name}"]`).focus(); ok = false; }
+    };
+    if (step === 1) {
+      check("first_name", v => v.length > 0);
+      check("last_name", v => v.length > 0);
+      check("phone", v => /^[2-9]\d{2}[2-9]\d{6}$/.test(digits(v)));
+      check("email", v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v));
+      return ok;
+    }
+    if (step === 2) {
+      check("breach_company", v => v.length > 0);
+      const dataBad = !dataBoxes().some(b => b.checked);
+      setInvalid(document.getElementById("data-field"), dataBad);
+      if (dataBad && ok) { dataBoxes()[0].focus(); ok = false; }
+      check("harm", v => v.length > 0);
+      return ok;
+    }
+    check("bank", v => v.length > 0);
+    checkRadio("online_finance", "online-field");
+    checkRadio("unwanted_calls", "calls-field");
     const consent = document.getElementById("consent");
     setInvalid(document.getElementById("consent-wrap"), !consent.checked);
     if (!consent.checked && ok) { consent.focus(); ok = false; }
@@ -525,7 +569,8 @@ src="https://www.facebook.com/tr?id=720948125834211&ev=PageView&noscript=1"
     if (f) f.classList.remove("invalid");
   });
 
-  // ---- Two-step flow -------------------------------------------------------
+  // ---- Multi-step flow -----------------------------------------------------
+  const STEPS = [["Your contact info", "33%"], ["About the breach", "66%"], ["Your banking", "90%"]];
   let step = 1;
   const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -535,11 +580,10 @@ src="https://www.facebook.com/tr?id=720948125834211&ev=PageView&noscript=1"
     const to = document.getElementById(`step-${next}`);
     const fwd = next > step;
     step = next;
-    document.getElementById("step-label").innerHTML = next === 1
-      ? "<b>Step 1 of 2</b> &middot; Your contact info"
-      : "<b>Step 2 of 2</b> &middot; About the breach";
-    document.getElementById("step-pct").textContent = next === 1 ? "50%" : "90%";
-    document.getElementById("step-bar").style.width = next === 1 ? "50%" : "90%";
+    const [title, pct] = STEPS[next - 1];
+    document.getElementById("step-label").innerHTML = `<b>Step ${next} of ${STEPS.length}</b> &middot; ${title}`;
+    document.getElementById("step-pct").textContent = pct;
+    document.getElementById("step-bar").style.width = pct;
 
     const swap = () => {
       from.hidden = true;
@@ -556,17 +600,14 @@ src="https://www.facebook.com/tr?id=720948125834211&ev=PageView&noscript=1"
     from.addEventListener("animationend", swap, { once: true });
   }
 
-  document.getElementById("back-btn").addEventListener("click", () => goTo(1));
+  form.querySelectorAll("[data-back]").forEach(b => b.addEventListener("click", () => goTo(+b.dataset.back)));
 
   form.addEventListener("submit", async e => {
     e.preventDefault();
     const errBox = document.getElementById("form-error");
     errBox.style.display = "none";
-    if (step === 1) {
-      if (validate(1)) goTo(2);
-      return;
-    }
-    if (!validate(2)) return;
+    if (!validate(step)) return;
+    if (step < STEPS.length) return goTo(step + 1);
 
     // Honeypot: silently accept bots without sending.
     if (document.getElementById("company").value) return showSuccess();
@@ -583,6 +624,9 @@ src="https://www.facebook.com/tr?id=720948125834211&ev=PageView&noscript=1"
       data_types: dataBoxes().filter(b => b.checked).map(b => b.value).join(","),
       harm: harmSel.value,
       harm_label: harmSel.options[harmSel.selectedIndex].text,
+      bank: form.bank.value.trim(),
+      online_finance: radioVal("online_finance"),
+      unwanted_calls: radioVal("unwanted_calls"),
       // Consent record for TCPA compliance
       consent: true,
       consent_text: document.getElementById("consent-text").textContent.replace(/\s+/g, " ").trim(),
